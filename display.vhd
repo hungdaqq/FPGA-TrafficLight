@@ -4,9 +4,9 @@ use IEEE.std_logic_unsigned.all;
 entity display is
     Port ( 
 		clk_2_5ms, light_active_night : in STD_LOGIC;
-		n						      : in integer range 0 to 99;
-		sel 						  : out STD_LOGIC_VECTOR (1 downto 0);
-        LED_out 					  : out STD_LOGIC_VECTOR (6 downto 0)
+		n			      : in integer range 0 to 99;
+		sel 			      : out STD_LOGIC_VECTOR (1 downto 0);
+		LED_out 		      : out STD_LOGIC_VECTOR (6 downto 0)
 	);
 end entity;
 
