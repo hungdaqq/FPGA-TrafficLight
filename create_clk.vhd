@@ -5,7 +5,7 @@ entity create_clk is
 generic( hour : integer range 0 to 24
 );
 port(
-	clk						: in  std_logic;
+	clk				: in  std_logic;
 	clk_2_5ms          		: out std_logic;			
 	clk_1s            	 	: out std_logic;
 	light_active_night	 	: out std_logic;
