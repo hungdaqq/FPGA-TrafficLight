@@ -5,20 +5,20 @@ entity create_clk is
 generic( hour : integer range 0 to 24
 );
 port(
-	clk	: in 	std_logic;
-	clk_2_5ms: out std_logic ;			
-	clk_1s: out	std_logic;
-	light_active_night: out std_logic;
-	light_active_rush_hour: out std_logic;
-	time1: out integer range 0 to 99
+	clk						: in  std_logic;
+	clk_2_5ms          		: out std_logic;			
+	clk_1s            	 	: out std_logic;
+	light_active_night	 	: out std_logic;
+	light_active_rush_hour  : out std_logic;
+	time1					: out integer range 0 to 99
 );
 end create_clk;
 
 architecture logic of create_clk is
-	signal temp_1s : std_logic := '1';
-	signal temp_2_5ms : std_logic := '1';
-	signal temp_1h : std_logic := '1';
-	signal temp :integer range 0 to 99 := hour;
+	signal temp_1s 			: std_logic := '1';
+	signal temp_2_5ms 		: std_logic := '1';
+	signal temp_1h 			: std_logic := '1';
+	signal temp 			: integer range 0 to 99 := hour;
 begin
 	time1 <= temp;
 	process(clk)

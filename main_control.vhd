@@ -6,24 +6,24 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity main_control is
 generic(
 		
-	n1_green_rush_hour:	integer range 0 to 99;-- thời gian đèn xanh lane1 giờ cao điểm
-	n1_red_rush_hour:	integer range 0 to 99;	-- thời gian đèn đỏ lane1 giờ cao điểm
+	n1_green_rush_hour : integer range 0 to 99;-- thời gian đèn xanh lane1 giờ cao điểm
+	n1_red_rush_hour   : integer range 0 to 99;	-- thời gian đèn đỏ lane1 giờ cao điểm
 		
-	n2_green_rush_hour:	integer range 0 to 99;-- thời gian đèn xanh lane2 giờ cao điểm
-	n2_red_rush_hour:	integer range 0 to 99;		-- thời gian đèn do lane2 giờ cao điểm
+	n2_green_rush_hour : integer range 0 to 99;-- thời gian đèn xanh lane2 giờ cao điểm
+	n2_red_rush_hour   : integer range 0 to 99;		-- thời gian đèn do lane2 giờ cao điểm
 	
-	n1_green_normal:	integer range 0 to 99;-- thời gian đèn xanh lane1 bình thường
-	n1_red_normal:	integer range 0 to 99;	-- thời gian đèn đỏ lane1 bình thường
+	n1_green_normal    : integer range 0 to 99;-- thời gian đèn xanh lane1 bình thường
+	n1_red_normal      : integer range 0 to 99;	-- thời gian đèn đỏ lane1 bình thường
 		
-	n2_green_normal:	integer range 0 to 99;-- thời gian đèn xanh lane2 bình thường
-	n2_red_normal:	integer range 0 to 99		-- thời gian đèn đỏ lane2 bình thường
+	n2_green_normal	   : integer range 0 to 99;-- thời gian đèn xanh lane2 bình thường
+	n2_red_normal      : integer range 0 to 99		-- thời gian đèn đỏ lane2 bình thường
 );
 port (	
 	clk_1s, light_active_night, light_active_rush_hour : in std_logic;
 	light_lane1: out std_logic_vector (2 downto 0) := "010"; -- red, green, yellow
 	light_lane2: out std_logic_vector (2 downto 0) := "100";
-	nume_lane1: out integer range 0 to 99;
-	nume_lane2: out integer range 0 to 99
+	nume_lane1:  out integer range 0 to 99;
+	nume_lane2:  out integer range 0 to 99
 );
 end main_control;
  
@@ -34,11 +34,11 @@ architecture Behavioral of main_control is
 	signal light1: light := green;
 	signal light2: light;
 	
-	signal n1_green:	integer range 0 to 99:= n1_green_normal;-- thời gian đèn xanh lane1 
-	signal n1_red:	integer range 0 to 99 := n1_red_normal;	-- thời gian đèn đỏ lane1
+	signal n1_green : integer range 0 to 99:= n1_green_normal;-- thời gian đèn xanh lane1 
+	signal n1_red   : integer range 0 to 99 := n1_red_normal;	-- thời gian đèn đỏ lane1
 		
-	signal n2_green:	integer range 0 to 99 := n2_green_normal;-- thời gian đèn xanh lane2
-	signal n2_red:	integer range 0 to 99 := n2_red_normal;		-- thời gian đèn đỏ lane2
+	signal n2_green : integer range 0 to 99 := n2_green_normal;-- thời gian đèn xanh lane2
+	signal n2_red   : integer range 0 to 99 := n2_red_normal;		-- thời gian đèn đỏ lane2
 begin
 	process(clk_1s, light_active_rush_hour)
 	begin
