@@ -1,0 +1,4 @@
+set tool_name "ModelSim-Altera (VHDL)"
+set corner_file_list {
+	{{"Slow Model"} {traffic_light_control.vho traffic_light_control_vhd.sdo}}
+}

@@ -1,0 +1,1537 @@
+TimeQuest Timing Analyzer report for traffic_light_control
+Tue Feb 07 09:21:00 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'create_clk:U0|temp_1s'
+ 12. Setup: 'clk'
+ 13. Setup: 'create_clk:U0|temp_1h'
+ 14. Setup: 'create_clk:U0|temp_2_5ms'
+ 15. Hold: 'create_clk:U0|temp_1s'
+ 16. Hold: 'create_clk:U0|temp_2_5ms'
+ 17. Hold: 'clk'
+ 18. Hold: 'create_clk:U0|temp_1h'
+ 19. Recovery: 'create_clk:U0|temp_2_5ms'
+ 20. Removal: 'create_clk:U0|temp_2_5ms'
+ 21. Minimum Pulse Width: 'clk'
+ 22. Minimum Pulse Width: 'create_clk:U0|temp_1h'
+ 23. Minimum Pulse Width: 'create_clk:U0|temp_1s'
+ 24. Minimum Pulse Width: 'create_clk:U0|temp_2_5ms'
+ 25. Clock to Output Times
+ 26. Minimum Clock to Output Times
+ 27. Setup Transfers
+ 28. Hold Transfers
+ 29. Recovery Transfers
+ 30. Removal Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; traffic_light_control                              ;
+; Device Family      ; MAX II                                             ;
+; Device Name        ; EPM240T100C5                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                             ;
++--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
+; Clock Name               ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                      ;
++--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
+; clk                      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                      ;
+; create_clk:U0|temp_1h    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { create_clk:U0|temp_1h }    ;
+; create_clk:U0|temp_1s    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { create_clk:U0|temp_1s }    ;
+; create_clk:U0|temp_2_5ms ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { create_clk:U0|temp_2_5ms } ;
++--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
+
+
++----------------------------------------------------------------+
+; Fmax Summary                                                   ;
++------------+-----------------+--------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name               ; Note ;
++------------+-----------------+--------------------------+------+
+; 82.44 MHz  ; 82.44 MHz       ; create_clk:U0|temp_1s    ;      ;
+; 95.04 MHz  ; 95.04 MHz       ; clk                      ;      ;
+; 103.94 MHz ; 103.94 MHz      ; create_clk:U0|temp_1h    ;      ;
+; 124.61 MHz ; 124.61 MHz      ; create_clk:U0|temp_2_5ms ;      ;
++------------+-----------------+--------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------------+
+; Setup Summary                                      ;
++--------------------------+---------+---------------+
+; Clock                    ; Slack   ; End Point TNS ;
++--------------------------+---------+---------------+
+; create_clk:U0|temp_1s    ; -11.130 ; -252.085      ;
+; clk                      ; -9.522  ; -117.699      ;
+; create_clk:U0|temp_1h    ; -8.621  ; -54.758       ;
+; create_clk:U0|temp_2_5ms ; -7.025  ; -129.188      ;
++--------------------------+---------+---------------+
+
+
++---------------------------------------------------+
+; Hold Summary                                      ;
++--------------------------+--------+---------------+
+; Clock                    ; Slack  ; End Point TNS ;
++--------------------------+--------+---------------+
+; create_clk:U0|temp_1s    ; -3.446 ; -3.446        ;
+; create_clk:U0|temp_2_5ms ; -2.425 ; -2.425        ;
+; clk                      ; -1.826 ; -1.826        ;
+; create_clk:U0|temp_1h    ; 1.942  ; 0.000         ;
++--------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Recovery Summary                                  ;
++--------------------------+--------+---------------+
+; Clock                    ; Slack  ; End Point TNS ;
++--------------------------+--------+---------------+
+; create_clk:U0|temp_2_5ms ; -2.492 ; -9.968        ;
++--------------------------+--------+---------------+
+
+
++--------------------------------------------------+
+; Removal Summary                                  ;
++--------------------------+-------+---------------+
+; Clock                    ; Slack ; End Point TNS ;
++--------------------------+-------+---------------+
+; create_clk:U0|temp_2_5ms ; 2.938 ; 0.000         ;
++--------------------------+-------+---------------+
+
+
++---------------------------------------------------+
+; Minimum Pulse Width Summary                       ;
++--------------------------+--------+---------------+
+; Clock                    ; Slack  ; End Point TNS ;
++--------------------------+--------+---------------+
+; clk                      ; -2.289 ; -2.289        ;
+; create_clk:U0|temp_1h    ; 0.234  ; 0.000         ;
+; create_clk:U0|temp_1s    ; 0.234  ; 0.000         ;
+; create_clk:U0|temp_2_5ms ; 0.234  ; 0.000         ;
++--------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'create_clk:U0|temp_1s'                                                                                                                                ;
++---------+---------------------------+--------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack   ; From Node                 ; To Node                        ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------+--------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; -11.130 ; main_control:U1|count2[2] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.797     ;
+; -11.031 ; main_control:U1|count1[4] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.698     ;
+; -11.006 ; main_control:U1|count1[1] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.673     ;
+; -10.949 ; main_control:U1|count2[3] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.616     ;
+; -10.934 ; main_control:U1|count1[0] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.601     ;
+; -10.856 ; main_control:U1|count1[5] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.523     ;
+; -10.803 ; main_control:U1|count1[4] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.470     ;
+; -10.801 ; main_control:U1|count1[4] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.468     ;
+; -10.778 ; main_control:U1|count1[1] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.445     ;
+; -10.776 ; main_control:U1|count1[1] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.443     ;
+; -10.706 ; main_control:U1|count1[0] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.373     ;
+; -10.704 ; main_control:U1|count1[0] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.371     ;
+; -10.679 ; main_control:U1|count2[2] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.346     ;
+; -10.677 ; main_control:U1|count2[2] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.344     ;
+; -10.675 ; main_control:U1|count2[2] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.342     ;
+; -10.654 ; main_control:U1|count1[3] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.321     ;
+; -10.630 ; main_control:U1|count2[1] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.297     ;
+; -10.628 ; main_control:U1|count1[5] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.295     ;
+; -10.626 ; main_control:U1|count1[5] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.293     ;
+; -10.601 ; main_control:U1|count2[0] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.268     ;
+; -10.586 ; main_control:U1|count1[4] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.253     ;
+; -10.561 ; main_control:U1|count1[1] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.228     ;
+; -10.498 ; main_control:U1|count2[3] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.165     ;
+; -10.496 ; main_control:U1|count2[3] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.163     ;
+; -10.494 ; main_control:U1|count2[3] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.161     ;
+; -10.492 ; main_control:U1|count1[2] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.159     ;
+; -10.490 ; main_control:U1|count2[5] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.157     ;
+; -10.489 ; main_control:U1|count1[0] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.156     ;
+; -10.471 ; main_control:U1|count2[2] ; main_control:U1|count1[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.138     ;
+; -10.455 ; main_control:U1|count2[2] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.122     ;
+; -10.426 ; main_control:U1|count1[3] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.093     ;
+; -10.424 ; main_control:U1|count1[3] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.091     ;
+; -10.411 ; main_control:U1|count1[5] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 11.078     ;
+; -10.290 ; main_control:U1|count2[3] ; main_control:U1|count1[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.957     ;
+; -10.277 ; main_control:U1|count2[2] ; main_control:U1|light_lane1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.944     ;
+; -10.277 ; main_control:U1|count2[2] ; main_control:U1|light_lane1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.944     ;
+; -10.274 ; main_control:U1|count2[3] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.941     ;
+; -10.264 ; main_control:U1|count1[2] ; main_control:U1|count2[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.931     ;
+; -10.262 ; main_control:U1|count1[2] ; main_control:U1|count2[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.929     ;
+; -10.209 ; main_control:U1|count1[3] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.876     ;
+; -10.206 ; main_control:U1|count2[5] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.873     ;
+; -10.204 ; main_control:U1|count2[5] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.871     ;
+; -10.202 ; main_control:U1|count2[5] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.869     ;
+; -10.179 ; main_control:U1|count2[1] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.846     ;
+; -10.177 ; main_control:U1|count2[1] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.844     ;
+; -10.175 ; main_control:U1|count2[1] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.842     ;
+; -10.150 ; main_control:U1|count2[0] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.817     ;
+; -10.148 ; main_control:U1|count2[0] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.815     ;
+; -10.146 ; main_control:U1|count2[0] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.813     ;
+; -10.120 ; main_control:U1|count1[4] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.787     ;
+; -10.118 ; main_control:U1|count1[4] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.785     ;
+; -10.116 ; main_control:U1|count1[4] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.783     ;
+; -10.109 ; main_control:U1|count1[4] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.776     ;
+; -10.096 ; main_control:U1|count2[3] ; main_control:U1|light_lane1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.763     ;
+; -10.096 ; main_control:U1|count2[3] ; main_control:U1|light_lane1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.763     ;
+; -10.095 ; main_control:U1|count1[1] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.762     ;
+; -10.093 ; main_control:U1|count1[1] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.760     ;
+; -10.091 ; main_control:U1|count1[1] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.758     ;
+; -10.084 ; main_control:U1|count1[1] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.751     ;
+; -10.068 ; main_control:U1|count1[4] ; main_control:U1|count2[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.735     ;
+; -10.056 ; main_control:U1|count1[4] ; main_control:U1|count2[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.723     ;
+; -10.055 ; main_control:U1|count2[2] ; main_control:U1|light1         ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.722     ;
+; -10.047 ; main_control:U1|count1[2] ; main_control:U1|count2[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.714     ;
+; -10.043 ; main_control:U1|count1[1] ; main_control:U1|count2[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.710     ;
+; -10.031 ; main_control:U1|count1[1] ; main_control:U1|count2[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.698     ;
+; -10.029 ; main_control:U1|count2[2] ; main_control:U1|count1[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.696     ;
+; -10.023 ; main_control:U1|count1[0] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.690     ;
+; -10.021 ; main_control:U1|count1[0] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.688     ;
+; -10.019 ; main_control:U1|count1[0] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.686     ;
+; -10.012 ; main_control:U1|count1[0] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.679     ;
+; -10.002 ; main_control:U1|count2[2] ; main_control:U1|count2[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.669     ;
+; -9.998  ; main_control:U1|count2[5] ; main_control:U1|count1[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.665     ;
+; -9.997  ; main_control:U1|count2[2] ; main_control:U1|count1[1]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.664     ;
+; -9.971  ; main_control:U1|count2[1] ; main_control:U1|count1[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.638     ;
+; -9.971  ; main_control:U1|count1[0] ; main_control:U1|count2[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.638     ;
+; -9.959  ; main_control:U1|count1[0] ; main_control:U1|count2[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.626     ;
+; -9.955  ; main_control:U1|count2[1] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.622     ;
+; -9.945  ; main_control:U1|count1[5] ; main_control:U1|count1[5]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.612     ;
+; -9.943  ; main_control:U1|count1[5] ; main_control:U1|count1[6]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.610     ;
+; -9.942  ; main_control:U1|count2[0] ; main_control:U1|count1[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.609     ;
+; -9.941  ; main_control:U1|count1[5] ; main_control:U1|count1[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.608     ;
+; -9.934  ; main_control:U1|count1[5] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.601     ;
+; -9.926  ; main_control:U1|count2[0] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.593     ;
+; -9.893  ; main_control:U1|count1[5] ; main_control:U1|count2[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.560     ;
+; -9.881  ; main_control:U1|count1[5] ; main_control:U1|count2[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.548     ;
+; -9.874  ; main_control:U1|count2[3] ; main_control:U1|light1         ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.541     ;
+; -9.848  ; main_control:U1|count2[3] ; main_control:U1|count1[0]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.515     ;
+; -9.841  ; main_control:U1|count2[2] ; main_control:U1|light_lane2[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.508     ;
+; -9.841  ; main_control:U1|count2[2] ; main_control:U1|light_lane2[1] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.508     ;
+; -9.836  ; main_control:U1|count2[4] ; main_control:U1|light_lane2[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.503     ;
+; -9.826  ; main_control:U1|count2[2] ; main_control:U1|count2[4]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.493     ;
+; -9.821  ; main_control:U1|count2[3] ; main_control:U1|count2[3]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.488     ;
+; -9.816  ; main_control:U1|count2[3] ; main_control:U1|count1[1]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.483     ;
+; -9.815  ; main_control:U1|count2[5] ; main_control:U1|count1[2]      ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.482     ;
+; -9.805  ; main_control:U1|count1[4] ; main_control:U1|light_lane1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.472     ;
+; -9.805  ; main_control:U1|count1[4] ; main_control:U1|light_lane1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.472     ;
+; -9.804  ; main_control:U1|count2[5] ; main_control:U1|light_lane1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.471     ;
+; -9.804  ; main_control:U1|count2[5] ; main_control:U1|light_lane1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.471     ;
+; -9.780  ; main_control:U1|count1[1] ; main_control:U1|light_lane1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.447     ;
+; -9.780  ; main_control:U1|count1[1] ; main_control:U1|light_lane1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 1.000        ; 0.000      ; 10.447     ;
++---------+---------------------------+--------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                       ;
++--------+--------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                ; To Node                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; -9.522 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.189     ;
+; -9.195 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.862      ;
+; -9.194 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.861      ;
+; -9.193 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.860      ;
+; -9.192 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.859      ;
+; -9.186 ; create_clk:U0|count2[5]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.853      ;
+; -9.186 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.853      ;
+; -9.185 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.852      ;
+; -9.175 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.842      ;
+; -9.081 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.748      ;
+; -9.039 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.706      ;
+; -9.027 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.694      ;
+; -8.979 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.646      ;
+; -8.936 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.603      ;
+; -8.858 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.525      ;
+; -8.857 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.524      ;
+; -8.856 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.523      ;
+; -8.855 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.522      ;
+; -8.849 ; create_clk:U0|count2[3]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.516      ;
+; -8.849 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.516      ;
+; -8.848 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.515      ;
+; -8.847 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.514      ;
+; -8.846 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.513      ;
+; -8.845 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.512      ;
+; -8.839 ; create_clk:U0|count2[0]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.506      ;
+; -8.839 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.506      ;
+; -8.754 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.421      ;
+; -8.753 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.420      ;
+; -8.752 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.419      ;
+; -8.751 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.418      ;
+; -8.745 ; create_clk:U0|count2[4]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.412      ;
+; -8.745 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.412      ;
+; -8.712 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.379      ;
+; -8.711 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.378      ;
+; -8.710 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.377      ;
+; -8.709 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.376      ;
+; -8.703 ; create_clk:U0|count2[6]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.370      ;
+; -8.703 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.370      ;
+; -8.700 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.367      ;
+; -8.699 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.366      ;
+; -8.698 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.365      ;
+; -8.697 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.364      ;
+; -8.691 ; create_clk:U0|count2[1]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.358      ;
+; -8.691 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.358      ;
+; -8.676 ; create_clk:U0|count2[5]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.343      ;
+; -8.652 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.319      ;
+; -8.651 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.318      ;
+; -8.650 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.317      ;
+; -8.649 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.316      ;
+; -8.643 ; create_clk:U0|count2[2]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.310      ;
+; -8.643 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.310      ;
+; -8.609 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.276      ;
+; -8.608 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.275      ;
+; -8.607 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.274      ;
+; -8.606 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.273      ;
+; -8.600 ; create_clk:U0|count2[7]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 9.267      ;
+; -8.600 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.267      ;
+; -8.542 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.209      ;
+; -8.339 ; create_clk:U0|count2[3]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 9.006      ;
+; -8.329 ; create_clk:U0|count2[0]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.996      ;
+; -8.235 ; create_clk:U0|count2[4]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.902      ;
+; -8.215 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.882      ;
+; -8.214 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.881      ;
+; -8.213 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.880      ;
+; -8.212 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.879      ;
+; -8.206 ; create_clk:U0|count2[9]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 8.873      ;
+; -8.206 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.873      ;
+; -8.193 ; create_clk:U0|count2[6]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.860      ;
+; -8.181 ; create_clk:U0|count2[1]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.848      ;
+; -8.133 ; create_clk:U0|count2[2]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.800      ;
+; -8.108 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.775      ;
+; -8.090 ; create_clk:U0|count2[7]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.757      ;
+; -7.927 ; create_clk:U0|count2[11] ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.594      ;
+; -7.781 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.448      ;
+; -7.780 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.447      ;
+; -7.779 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.446      ;
+; -7.778 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.445      ;
+; -7.772 ; create_clk:U0|count2[8]  ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 8.439      ;
+; -7.772 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.439      ;
+; -7.696 ; create_clk:U0|count2[9]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.363      ;
+; -7.600 ; create_clk:U0|count2[11] ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.267      ;
+; -7.599 ; create_clk:U0|count2[11] ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.266      ;
+; -7.598 ; create_clk:U0|count2[11] ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.265      ;
+; -7.597 ; create_clk:U0|count2[11] ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.264      ;
+; -7.591 ; create_clk:U0|count2[11] ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 8.258      ;
+; -7.591 ; create_clk:U0|count2[11] ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.258      ;
+; -7.476 ; create_clk:U0|count2[10] ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.143      ;
+; -7.331 ; create_clk:U0|count2[12] ; create_clk:U0|count2[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.998      ;
+; -7.262 ; create_clk:U0|count2[8]  ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.929      ;
+; -7.149 ; create_clk:U0|count2[10] ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.816      ;
+; -7.148 ; create_clk:U0|count2[10] ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.815      ;
+; -7.147 ; create_clk:U0|count2[10] ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.814      ;
+; -7.146 ; create_clk:U0|count2[10] ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.813      ;
+; -7.140 ; create_clk:U0|count2[10] ; create_clk:U0|temp_2_5ms ; clk          ; clk         ; 1.000        ; 0.000      ; 7.807      ;
+; -7.140 ; create_clk:U0|count2[10] ; create_clk:U0|count2[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.807      ;
+; -7.081 ; create_clk:U0|count2[11] ; create_clk:U0|count2[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.748      ;
+; -7.004 ; create_clk:U0|count2[12] ; create_clk:U0|count2[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.671      ;
+; -7.003 ; create_clk:U0|count2[12] ; create_clk:U0|count2[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.670      ;
+; -7.002 ; create_clk:U0|count2[12] ; create_clk:U0|count2[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.669      ;
+; -7.001 ; create_clk:U0|count2[12] ; create_clk:U0|count2[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.668      ;
++--------+--------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'create_clk:U0|temp_1h'                                                                                                                                  ;
++--------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                              ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; -8.621 ; create_clk:U0|count[2] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 9.288      ;
+; -8.585 ; create_clk:U0|count[1] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 9.252      ;
+; -8.240 ; create_clk:U0|count[2] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.907      ;
+; -8.204 ; create_clk:U0|count[1] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.871      ;
+; -7.722 ; create_clk:U0|count[0] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.389      ;
+; -7.565 ; create_clk:U0|count[2] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.232      ;
+; -7.529 ; create_clk:U0|count[1] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.196      ;
+; -7.387 ; create_clk:U0|count[5] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.054      ;
+; -7.341 ; create_clk:U0|count[0] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 8.008      ;
+; -7.293 ; create_clk:U0|count[5] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.960      ;
+; -7.240 ; create_clk:U0|count[4] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.907      ;
+; -7.199 ; create_clk:U0|count[4] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.866      ;
+; -7.183 ; create_clk:U0|count[3] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.850      ;
+; -7.134 ; create_clk:U0|count[4] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.801      ;
+; -6.787 ; create_clk:U0|count[3] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.454      ;
+; -6.744 ; create_clk:U0|count[0] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.411      ;
+; -6.699 ; create_clk:U0|count[5] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 7.366      ;
+; -6.320 ; create_clk:U0|count[3] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.987      ;
+; -5.959 ; create_clk:U0|count[2] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.626      ;
+; -5.923 ; create_clk:U0|count[1] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.590      ;
+; -5.909 ; create_clk:U0|count[2] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.576      ;
+; -5.894 ; create_clk:U0|count[2] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.561      ;
+; -5.881 ; create_clk:U0|count[1] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.548      ;
+; -5.873 ; create_clk:U0|count[1] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.540      ;
+; -5.858 ; create_clk:U0|count[1] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.525      ;
+; -5.825 ; create_clk:U0|count[5] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.492      ;
+; -5.666 ; create_clk:U0|count[4] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.333      ;
+; -5.652 ; create_clk:U0|count[6] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.319      ;
+; -5.593 ; create_clk:U0|count[4] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.260      ;
+; -5.558 ; create_clk:U0|count[6] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.225      ;
+; -5.528 ; create_clk:U0|count[4] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 6.195      ;
+; -5.218 ; create_clk:U0|count[2] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.885      ;
+; -5.193 ; create_clk:U0|count[1] ; create_clk:U0|count[1]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.860      ;
+; -5.138 ; create_clk:U0|count[0] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.805      ;
+; -5.093 ; create_clk:U0|count[5] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.760      ;
+; -5.029 ; create_clk:U0|count[0] ; create_clk:U0|count[1]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.696      ;
+; -5.018 ; create_clk:U0|count[0] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.685      ;
+; -5.010 ; create_clk:U0|count[0] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.677      ;
+; -4.995 ; create_clk:U0|count[0] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.662      ;
+; -4.988 ; create_clk:U0|count[5] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.655      ;
+; -4.964 ; create_clk:U0|count[6] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.631      ;
+; -4.714 ; create_clk:U0|count[3] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.381      ;
+; -4.664 ; create_clk:U0|count[3] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.331      ;
+; -4.649 ; create_clk:U0|count[3] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 5.316      ;
+; -4.090 ; create_clk:U0|count[6] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 4.757      ;
+; -3.358 ; create_clk:U0|count[6] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 4.025      ;
+; -1.496 ; create_clk:U0|count[0] ; create_clk:U0|count[0]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 1.000        ; 0.000      ; 2.163      ;
++--------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'create_clk:U0|temp_2_5ms'                                                                                                                                  ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                 ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; -7.025 ; display:U4|count                 ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.692      ;
+; -7.023 ; display:U4|count                 ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.690      ;
+; -7.017 ; display:U4|count                 ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.684      ;
+; -6.627 ; create_clk:U0|count1[3]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.294      ;
+; -6.625 ; create_clk:U0|count1[3]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.292      ;
+; -6.619 ; create_clk:U0|count1[3]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.286      ;
+; -6.616 ; create_clk:U0|count1[4]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.283      ;
+; -6.614 ; create_clk:U0|count1[4]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.281      ;
+; -6.608 ; create_clk:U0|count1[4]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.275      ;
+; -6.598 ; create_clk:U0|count1[2]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.265      ;
+; -6.596 ; create_clk:U0|count1[2]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.263      ;
+; -6.590 ; create_clk:U0|count1[2]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.257      ;
+; -6.527 ; create_clk:U0|count1[1]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.194      ;
+; -6.525 ; create_clk:U0|count1[1]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.192      ;
+; -6.519 ; create_clk:U0|count1[1]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.186      ;
+; -6.422 ; create_clk:U0|count1[5]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.089      ;
+; -6.420 ; create_clk:U0|count1[5]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.087      ;
+; -6.414 ; create_clk:U0|count1[5]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 7.081      ;
+; -6.313 ; display:U4|count                 ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.980      ;
+; -6.190 ; main_control:U1|count2[6]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 6.130      ;
+; -5.962 ; main_control:U1|count2[4]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.902      ;
+; -5.915 ; create_clk:U0|count1[3]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.582      ;
+; -5.904 ; create_clk:U0|count1[4]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.571      ;
+; -5.886 ; create_clk:U0|count1[2]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.553      ;
+; -5.815 ; create_clk:U0|count1[1]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.482      ;
+; -5.781 ; main_control:U1|count2[1]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.721      ;
+; -5.710 ; create_clk:U0|count1[5]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.377      ;
+; -5.561 ; main_control:U1|count2[2]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.501      ;
+; -5.523 ; create_clk:U0|count1[6]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.190      ;
+; -5.521 ; create_clk:U0|count1[6]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.188      ;
+; -5.515 ; create_clk:U0|count1[6]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 6.182      ;
+; -5.466 ; create_clk:U0|count[3]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 5.586      ;
+; -5.441 ; main_control:U1|count2[4]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.381      ;
+; -5.402 ; main_control:U1|count1[1]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.342      ;
+; -5.389 ; main_control:U1|count1[2]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.329      ;
+; -5.364 ; create_clk:U0|count[2]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 5.484      ;
+; -5.278 ; main_control:U1|count2[0]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.218      ;
+; -5.249 ; create_clk:U0|count[4]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 5.369      ;
+; -5.230 ; main_control:U1|count2[2]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.170      ;
+; -5.172 ; main_control:U1|count2[4]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.112      ;
+; -5.162 ; main_control:U1|count1[4]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.102      ;
+; -5.130 ; main_control:U1|count2[5]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.070      ;
+; -5.129 ; main_control:U1|count1[6]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 5.069      ;
+; -5.124 ; create_clk:U0|count[4]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 5.244      ;
+; -5.107 ; display:U4|count                 ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.774      ;
+; -4.973 ; create_clk:U0|count[2]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 5.093      ;
+; -4.939 ; main_control:U1|count1[2]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.879      ;
+; -4.937 ; main_control:U1|count2[5]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.877      ;
+; -4.874 ; main_control:U1|count2[4]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.814      ;
+; -4.850 ; main_control:U1|count2[3]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.790      ;
+; -4.821 ; create_clk:U0|count1[7]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.488      ;
+; -4.819 ; create_clk:U0|count1[7]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.486      ;
+; -4.816 ; main_control:U1|count2[6]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.756      ;
+; -4.813 ; create_clk:U0|count1[7]          ; create_clk:U0|temp_1s   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.480      ;
+; -4.811 ; create_clk:U0|count1[6]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.478      ;
+; -4.791 ; main_control:U1|count1[4]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.731      ;
+; -4.743 ; create_clk:U0|count[3]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.863      ;
+; -4.740 ; main_control:U1|count1[4]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.680      ;
+; -4.709 ; create_clk:U0|count1[3]          ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.376      ;
+; -4.707 ; main_control:U1|count2[6]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.647      ;
+; -4.702 ; main_control:U1|count1[3]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.642      ;
+; -4.700 ; main_control:U1|count1[5]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.640      ;
+; -4.698 ; create_clk:U0|count1[4]          ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.365      ;
+; -4.695 ; display:U4|count                 ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.362      ;
+; -4.680 ; create_clk:U0|count1[2]          ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.347      ;
+; -4.635 ; create_clk:U0|count[6]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.755      ;
+; -4.627 ; main_control:U1|count1[6]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.567      ;
+; -4.627 ; create_clk:U0|count[3]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.747      ;
+; -4.609 ; create_clk:U0|count1[1]          ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.276      ;
+; -4.609 ; create_clk:U0|count[4]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.729      ;
+; -4.583 ; create_clk:U0|count[5]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.703      ;
+; -4.576 ; main_control:U1|count2[3]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.516      ;
+; -4.575 ; main_control:U1|count2[2]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.515      ;
+; -4.565 ; create_clk:U0|count[5]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.685      ;
+; -4.556 ; display:U4|count                 ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.223      ;
+; -4.478 ; main_control:U1|count1[3]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.418      ;
+; -4.373 ; main_control:U1|count2[1]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.313      ;
+; -4.372 ; create_clk:U0|count[6]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.492      ;
+; -4.371 ; display:U3|count                 ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 5.038      ;
+; -4.362 ; create_clk:U0|count[0]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.482      ;
+; -4.352 ; create_clk:U0|count[4]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.472      ;
+; -4.321 ; main_control:U1|count2[5]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.261      ;
+; -4.311 ; main_control:U1|count1[1]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.251      ;
+; -4.297 ; create_clk:U0|count1[3]          ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 4.964      ;
+; -4.271 ; create_clk:U0|count[1]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.391      ;
+; -4.268 ; create_clk:U0|count1[2]          ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 4.935      ;
+; -4.266 ; create_clk:U0|count[2]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.386      ;
+; -4.250 ; main_control:U1|count2[1]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.190      ;
+; -4.248 ; create_clk:U0|count[1]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.368      ;
+; -4.240 ; main_control:U1|count1[4]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.180      ;
+; -4.236 ; create_clk:U0|light_active_night ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.356      ;
+; -4.231 ; main_control:U1|count2[5]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.171      ;
+; -4.200 ; main_control:U1|count1[2]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.140      ;
+; -4.197 ; create_clk:U0|count1[1]          ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 4.864      ;
+; -4.193 ; create_clk:U0|count[3]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.313      ;
+; -4.188 ; main_control:U1|count1[1]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.727     ; 4.128      ;
+; -4.131 ; display:U4|Led_bcd[0]            ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 4.798      ;
+; -4.125 ; create_clk:U0|count[1]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.245      ;
+; -4.109 ; create_clk:U0|count1[7]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 1.000        ; 0.000      ; 4.776      ;
+; -4.035 ; create_clk:U0|count[5]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 4.155      ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'create_clk:U0|temp_1s'                                                                                                                                               ;
++--------+--------------------------------------+------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack  ; From Node                            ; To Node                            ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------+------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; -3.446 ; create_clk:U0|temp_1h                ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 4.988      ; 2.139      ;
+; -2.946 ; create_clk:U0|temp_1h                ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; -0.500       ; 4.988      ; 2.139      ;
+; 1.309  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count1[0]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 1.710      ;
+; 1.329  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count1[1]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 1.730      ;
+; 1.676  ; create_clk:U0|\process_2:count1[2]   ; create_clk:U0|\process_2:count1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.897      ;
+; 1.702  ; main_control:U1|count3[0]            ; main_control:U1|count3[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.923      ;
+; 1.710  ; main_control:U1|count3[0]            ; main_control:U1|count3[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.931      ;
+; 1.715  ; create_clk:U0|\process_2:count1[0]   ; create_clk:U0|\process_2:count1[1] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.936      ;
+; 1.715  ; create_clk:U0|\process_2:count1[0]   ; create_clk:U0|\process_2:count1[0] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.936      ;
+; 1.717  ; create_clk:U0|\process_2:count1[0]   ; create_clk:U0|\process_2:count1[3] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 1.938      ;
+; 1.926  ; create_clk:U0|\process_2:count1[3]   ; create_clk:U0|\process_2:count1[3] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.147      ;
+; 1.937  ; create_clk:U0|\process_2:count1[1]   ; create_clk:U0|\process_2:count1[1] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.158      ;
+; 1.946  ; create_clk:U0|\process_2:count1[1]   ; create_clk:U0|\process_2:count1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.167      ;
+; 2.154  ; create_clk:U0|\process_2:count1[2]   ; create_clk:U0|\process_2:count1[3] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.375      ;
+; 2.188  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count1[2]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 2.589      ;
+; 2.209  ; main_control:U1|control              ; main_control:U1|control            ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.430      ;
+; 2.218  ; main_control:U1|control              ; main_control:U1|light1             ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.439      ;
+; 2.226  ; create_clk:U0|\process_2:count1[0]   ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.447      ;
+; 2.272  ; main_control:U1|count3[1]            ; main_control:U1|count3[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.493      ;
+; 2.296  ; main_control:U1|light1               ; main_control:U1|light1             ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.517      ;
+; 2.299  ; create_clk:U0|\process_2:count1[0]   ; create_clk:U0|\process_2:count1[2] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.520      ;
+; 2.300  ; main_control:U1|light2               ; main_control:U1|light2             ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.521      ;
+; 2.300  ; main_control:U1|light1               ; main_control:U1|control            ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.521      ;
+; 2.548  ; create_clk:U0|\process_2:count1[1]   ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.769      ;
+; 2.620  ; create_clk:U0|\process_2:count1[1]   ; create_clk:U0|\process_2:count1[3] ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.841      ;
+; 2.722  ; create_clk:U0|\process_2:count1[2]   ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 2.943      ;
+; 2.876  ; create_clk:U0|\process_2:count1[3]   ; create_clk:U0|temp_1h              ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.097      ;
+; 2.938  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count2[4]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 3.339      ;
+; 3.110  ; main_control:U1|light1               ; main_control:U1|light_lane1[1]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.331      ;
+; 3.317  ; main_control:U1|light1               ; main_control:U1|light_lane2[2]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.538      ;
+; 3.325  ; main_control:U1|light1               ; main_control:U1|light_lane1[2]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.546      ;
+; 3.352  ; create_clk:U0|light_active_night     ; main_control:U1|count2[6]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 3.753      ;
+; 3.366  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane1[2]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 3.767      ;
+; 3.416  ; main_control:U1|light_lane1[1]       ; main_control:U1|light_lane1[1]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.637      ;
+; 3.453  ; create_clk:U0|light_active_night     ; main_control:U1|light2             ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 3.854      ;
+; 3.471  ; main_control:U1|control              ; main_control:U1|light_lane1[1]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.692      ;
+; 3.617  ; main_control:U1|count2[0]            ; main_control:U1|count2[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.838      ;
+; 3.641  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane2[0]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.042      ;
+; 3.667  ; main_control:U1|light2               ; main_control:U1|count2[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 3.888      ;
+; 3.755  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count2[3]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.156      ;
+; 3.774  ; create_clk:U0|light_active_rush_hour ; main_control:U1|count2[0]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.175      ;
+; 3.823  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane1[1]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.224      ;
+; 3.830  ; main_control:U1|light2               ; main_control:U1|count2[4]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.051      ;
+; 3.855  ; create_clk:U0|light_active_night     ; main_control:U1|count2[2]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.256      ;
+; 3.857  ; create_clk:U0|light_active_night     ; main_control:U1|count2[5]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.258      ;
+; 3.858  ; create_clk:U0|light_active_night     ; main_control:U1|count2[3]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.259      ;
+; 3.880  ; create_clk:U0|light_active_night     ; main_control:U1|count1[3]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.281      ;
+; 3.887  ; create_clk:U0|light_active_night     ; main_control:U1|count2[1]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.288      ;
+; 3.986  ; main_control:U1|control              ; main_control:U1|count1[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.207      ;
+; 4.054  ; main_control:U1|light1               ; main_control:U1|light_lane2[1]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.275      ;
+; 4.068  ; main_control:U1|control              ; main_control:U1|count1[3]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.289      ;
+; 4.102  ; main_control:U1|light2               ; main_control:U1|light_lane2[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.323      ;
+; 4.118  ; create_clk:U0|light_active_night     ; main_control:U1|count2[4]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.519      ;
+; 4.123  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane2[1]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.524      ;
+; 4.243  ; create_clk:U0|light_active_night     ; main_control:U1|count3[1]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.644      ;
+; 4.243  ; create_clk:U0|light_active_night     ; main_control:U1|count3[0]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.644      ;
+; 4.287  ; main_control:U1|count3[0]            ; main_control:U1|light_lane2[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.508      ;
+; 4.295  ; create_clk:U0|light_active_night     ; main_control:U1|count2[0]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.696      ;
+; 4.305  ; main_control:U1|count2[1]            ; main_control:U1|count2[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.526      ;
+; 4.352  ; create_clk:U0|light_active_night     ; main_control:U1|light1             ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.753      ;
+; 4.352  ; create_clk:U0|light_active_night     ; main_control:U1|control            ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.753      ;
+; 4.425  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane2[2]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.826      ;
+; 4.449  ; main_control:U1|count1[3]            ; main_control:U1|count1[3]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.670      ;
+; 4.502  ; main_control:U1|control              ; main_control:U1|light2             ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.723      ;
+; 4.506  ; main_control:U1|light2               ; main_control:U1|light_lane1[1]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.727      ;
+; 4.518  ; main_control:U1|light2               ; main_control:U1|control            ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.739      ;
+; 4.543  ; main_control:U1|control              ; main_control:U1|count1[2]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.764      ;
+; 4.574  ; main_control:U1|count1[1]            ; main_control:U1|count1[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.795      ;
+; 4.574  ; create_clk:U0|light_active_night     ; main_control:U1|count1[2]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.975      ;
+; 4.584  ; create_clk:U0|light_active_night     ; main_control:U1|count1[0]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.985      ;
+; 4.584  ; create_clk:U0|light_active_night     ; main_control:U1|count1[1]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 4.985      ;
+; 4.586  ; main_control:U1|count3[0]            ; main_control:U1|light_lane1[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.807      ;
+; 4.691  ; main_control:U1|control              ; main_control:U1|count2[4]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.912      ;
+; 4.706  ; main_control:U1|control              ; main_control:U1|count1[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.927      ;
+; 4.717  ; main_control:U1|control              ; main_control:U1|light_lane2[2]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.938      ;
+; 4.760  ; main_control:U1|light1               ; main_control:U1|count1[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.981      ;
+; 4.770  ; main_control:U1|light1               ; main_control:U1|count2[6]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 4.991      ;
+; 4.900  ; create_clk:U0|light_active_night     ; main_control:U1|light_lane1[0]     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 5.301      ;
+; 4.926  ; main_control:U1|light2               ; main_control:U1|light1             ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.147      ;
+; 4.971  ; main_control:U1|count3[1]            ; main_control:U1|light_lane2[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.192      ;
+; 5.014  ; create_clk:U0|light_active_night     ; main_control:U1|count1[4]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 5.415      ;
+; 5.016  ; create_clk:U0|light_active_night     ; main_control:U1|count1[6]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 5.417      ;
+; 5.017  ; main_control:U1|count2[0]            ; main_control:U1|count2[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.238      ;
+; 5.018  ; create_clk:U0|light_active_night     ; main_control:U1|count1[5]          ; create_clk:U0|temp_1h ; create_clk:U0|temp_1s ; 0.000        ; 0.180      ; 5.419      ;
+; 5.026  ; main_control:U1|light1               ; main_control:U1|light_lane1[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.247      ;
+; 5.039  ; main_control:U1|count1[2]            ; main_control:U1|count1[3]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.260      ;
+; 5.066  ; main_control:U1|light1               ; main_control:U1|count2[5]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.287      ;
+; 5.069  ; main_control:U1|light1               ; main_control:U1|count2[2]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.290      ;
+; 5.193  ; main_control:U1|count1[4]            ; main_control:U1|light_lane1[2]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.414      ;
+; 5.243  ; main_control:U1|count1[0]            ; main_control:U1|count1[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.464      ;
+; 5.255  ; main_control:U1|light2               ; main_control:U1|count2[3]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.476      ;
+; 5.270  ; main_control:U1|count3[1]            ; main_control:U1|light_lane1[0]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.491      ;
+; 5.306  ; main_control:U1|count1[5]            ; main_control:U1|count1[5]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.527      ;
+; 5.312  ; main_control:U1|control              ; main_control:U1|count2[1]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.533      ;
+; 5.329  ; main_control:U1|control              ; main_control:U1|light_lane1[2]     ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.550      ;
+; 5.341  ; main_control:U1|control              ; main_control:U1|count2[6]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.562      ;
+; 5.343  ; main_control:U1|control              ; main_control:U1|count2[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.564      ;
+; 5.417  ; main_control:U1|count1[0]            ; main_control:U1|count1[0]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.638      ;
+; 5.458  ; main_control:U1|count1[0]            ; main_control:U1|count1[3]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.679      ;
+; 5.484  ; main_control:U1|count2[2]            ; main_control:U1|count2[2]          ; create_clk:U0|temp_1s ; create_clk:U0|temp_1s ; 0.000        ; 0.000      ; 5.705      ;
++--------+--------------------------------------+------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'create_clk:U0|temp_2_5ms'                                                                                                                                   ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                 ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; -2.425 ; create_clk:U0|temp_1s            ; create_clk:U0|temp_1s   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; 4.261      ; 2.433      ;
+; -1.925 ; create_clk:U0|temp_1s            ; create_clk:U0|temp_1s   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; -0.500       ; 4.261      ; 2.433      ;
+; 1.665  ; display:U3|count                 ; display:U3|count        ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 1.886      ;
+; 1.909  ; display:U4|count                 ; display:U4|count        ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.130      ;
+; 2.135  ; display:U3|Led_bcd[1]            ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.356      ;
+; 2.222  ; display:U2|Led_bcd[1]            ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.443      ;
+; 2.247  ; display:U3|Led_bcd[0]            ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.468      ;
+; 2.576  ; display:U4|Led_bcd[2]            ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.797      ;
+; 2.637  ; display:U2|Led_bcd[0]            ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 2.858      ;
+; 2.938  ; display:U3|count                 ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.159      ;
+; 2.938  ; display:U3|count                 ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.159      ;
+; 2.938  ; display:U3|count                 ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.159      ;
+; 2.967  ; display:U3|Led_bcd[1]            ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.188      ;
+; 2.991  ; display:U4|count                 ; display:U4|sel[1]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.212      ;
+; 2.992  ; display:U4|count                 ; display:U4|sel[0]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.213      ;
+; 3.115  ; display:U4|Led_bcd[1]            ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.336      ;
+; 3.134  ; create_clk:U0|count1[1]          ; create_clk:U0|count1[1] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.355      ;
+; 3.162  ; display:U2|Led_bcd[1]            ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.383      ;
+; 3.187  ; display:U3|Led_bcd[0]            ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.408      ;
+; 3.271  ; create_clk:U0|count1[2]          ; create_clk:U0|count1[2] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.492      ;
+; 3.298  ; display:U3|Led_bcd[0]            ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.519      ;
+; 3.324  ; display:U3|count                 ; display:U2|sel[0]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.545      ;
+; 3.328  ; display:U3|count                 ; display:U3|sel[0]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.549      ;
+; 3.337  ; main_control:U1|count1[3]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 2.831      ;
+; 3.487  ; display:U2|Led_bcd[2]            ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.708      ;
+; 3.493  ; main_control:U1|count1[6]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 2.987      ;
+; 3.498  ; display:U4|Led_bcd[0]            ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.719      ;
+; 3.508  ; create_clk:U0|count[6]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.182      ;
+; 3.577  ; display:U2|Led_bcd[0]            ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.798      ;
+; 3.688  ; display:U2|Led_bcd[0]            ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 3.909      ;
+; 3.724  ; create_clk:U0|count[1]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.398      ;
+; 3.784  ; display:U3|count                 ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.005      ;
+; 3.787  ; main_control:U1|count1[1]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.281      ;
+; 3.799  ; main_control:U1|count1[2]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.293      ;
+; 3.849  ; main_control:U1|count2[1]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.343      ;
+; 3.856  ; display:U3|count                 ; display:U3|sel[1]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.077      ;
+; 3.859  ; display:U3|count                 ; display:U2|sel[1]       ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.080      ;
+; 3.865  ; create_clk:U0|count[2]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.539      ;
+; 3.881  ; main_control:U1|count1[5]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.375      ;
+; 3.891  ; main_control:U1|count1[5]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.385      ;
+; 3.910  ; main_control:U1|count1[5]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.404      ;
+; 3.941  ; create_clk:U0|count1[1]          ; create_clk:U0|count1[2] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.162      ;
+; 3.964  ; create_clk:U0|count1[4]          ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.185      ;
+; 3.975  ; display:U4|count                 ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.196      ;
+; 3.975  ; display:U4|count                 ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.196      ;
+; 3.975  ; display:U4|count                 ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.196      ;
+; 4.010  ; display:U3|count                 ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.231      ;
+; 4.010  ; display:U3|count                 ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.231      ;
+; 4.010  ; display:U3|count                 ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.231      ;
+; 4.030  ; main_control:U1|count2[3]        ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.524      ;
+; 4.052  ; create_clk:U0|count[1]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.726      ;
+; 4.055  ; create_clk:U0|count1[1]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.276      ;
+; 4.055  ; display:U4|Led_bcd[1]            ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.276      ;
+; 4.065  ; main_control:U1|count2[2]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.559      ;
+; 4.071  ; create_clk:U0|count1[5]          ; create_clk:U0|count1[5] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.292      ;
+; 4.122  ; main_control:U1|count2[3]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.616      ;
+; 4.207  ; create_clk:U0|light_active_night ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.881      ;
+; 4.207  ; create_clk:U0|light_active_night ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.881      ;
+; 4.207  ; create_clk:U0|light_active_night ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.881      ;
+; 4.207  ; create_clk:U0|light_active_night ; display:U3|count        ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 3.881      ;
+; 4.215  ; main_control:U1|count1[4]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.709      ;
+; 4.246  ; main_control:U1|count1[0]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.740      ;
+; 4.253  ; display:U4|count                 ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.474      ;
+; 4.305  ; main_control:U1|count1[5]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.799      ;
+; 4.316  ; display:U4|count                 ; create_clk:U0|count1[1] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.537      ;
+; 4.328  ; create_clk:U0|light_active_night ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.002      ;
+; 4.328  ; create_clk:U0|light_active_night ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.002      ;
+; 4.328  ; create_clk:U0|light_active_night ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.002      ;
+; 4.328  ; create_clk:U0|light_active_night ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.002      ;
+; 4.362  ; display:U3|Led_bcd[2]            ; display:U3|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.583      ;
+; 4.367  ; create_clk:U0|count[5]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.041      ;
+; 4.377  ; create_clk:U0|count[5]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.051      ;
+; 4.388  ; display:U3|count                 ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.609      ;
+; 4.409  ; create_clk:U0|count[3]           ; display:U4|Led_bcd[0]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.083      ;
+; 4.418  ; main_control:U1|count1[3]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.912      ;
+; 4.427  ; display:U4|count                 ; create_clk:U0|count1[2] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.648      ;
+; 4.438  ; display:U4|Led_bcd[0]            ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.659      ;
+; 4.442  ; main_control:U1|count2[6]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.936      ;
+; 4.448  ; main_control:U1|count1[6]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 3.942      ;
+; 4.463  ; create_clk:U0|count[6]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.137      ;
+; 4.471  ; create_clk:U0|count[5]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.145      ;
+; 4.476  ; create_clk:U0|count[6]           ; display:U4|Led_bcd[1]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.150      ;
+; 4.481  ; create_clk:U0|count[5]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.155      ;
+; 4.489  ; create_clk:U0|count1[3]          ; create_clk:U0|count1[3] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.710      ;
+; 4.504  ; create_clk:U0|count1[6]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.725      ;
+; 4.535  ; display:U4|Led_bcd[0]            ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.756      ;
+; 4.553  ; main_control:U1|count1[6]        ; display:U2|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.047      ;
+; 4.555  ; create_clk:U0|count1[7]          ; create_clk:U0|count1[6] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.776      ;
+; 4.556  ; create_clk:U0|count[1]           ; display:U4|Led_bcd[2]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.230      ;
+; 4.604  ; create_clk:U0|count1[1]          ; create_clk:U0|count1[4] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.825      ;
+; 4.611  ; main_control:U1|count2[3]        ; display:U3|Led_bcd[0]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.105      ;
+; 4.619  ; main_control:U1|count1[1]        ; display:U2|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.113      ;
+; 4.628  ; create_clk:U0|count1[7]          ; create_clk:U0|count1[7] ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0.000        ; 0.000      ; 4.849      ;
+; 4.631  ; main_control:U1|count1[2]        ; display:U2|Led_bcd[3]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.125      ;
+; 4.639  ; create_clk:U0|count[3]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.313      ;
+; 4.650  ; main_control:U1|count2[5]        ; display:U3|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.144      ;
+; 4.667  ; create_clk:U0|count[1]           ; display:U4|Led_bcd[3]   ; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 4.341      ;
+; 4.677  ; main_control:U1|count2[5]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.171      ;
+; 4.679  ; main_control:U1|count1[4]        ; display:U2|Led_bcd[1]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.173      ;
+; 4.681  ; main_control:U1|count2[1]        ; display:U3|Led_bcd[2]   ; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.727     ; 4.175      ;
++--------+----------------------------------+-------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                    ;
++--------+--------------------------+--------------------------+--------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                ; To Node                  ; Launch Clock             ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------+--------------------------+--------------------------+-------------+--------------+------------+------------+
+; -1.826 ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; clk         ; 0.000        ; 3.348      ; 2.119      ;
+; -1.326 ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; clk         ; -0.500       ; 3.348      ; 2.119      ;
+; 3.636  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[1]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 3.857      ;
+; 3.681  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[0]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 3.902      ;
+; 3.691  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[4]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 3.912      ;
+; 3.845  ; create_clk:U0|count2[7]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.066      ;
+; 3.854  ; create_clk:U0|count2[15] ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.075      ;
+; 3.885  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.106      ;
+; 3.925  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[3]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.146      ;
+; 4.085  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.306      ;
+; 4.206  ; create_clk:U0|count2[14] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.427      ;
+; 4.378  ; create_clk:U0|count2[10] ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.599      ;
+; 4.388  ; create_clk:U0|count2[15] ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.609      ;
+; 4.392  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[2]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.613      ;
+; 4.468  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[1]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.689      ;
+; 4.479  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[4]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.700      ;
+; 4.678  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.899      ;
+; 4.697  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.918      ;
+; 4.745  ; create_clk:U0|count2[9]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.966      ;
+; 4.765  ; create_clk:U0|count2[11] ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 4.986      ;
+; 4.789  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.010      ;
+; 4.844  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.065      ;
+; 4.856  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.077      ;
+; 4.867  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[4]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.088      ;
+; 4.879  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.100      ;
+; 4.898  ; create_clk:U0|count2[15] ; create_clk:U0|temp_2_5ms ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.119      ;
+; 4.898  ; create_clk:U0|count2[15] ; create_clk:U0|count2[12] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.119      ;
+; 4.902  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[4]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.123      ;
+; 4.904  ; create_clk:U0|count2[15] ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.125      ;
+; 4.905  ; create_clk:U0|count2[15] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.126      ;
+; 4.907  ; create_clk:U0|count2[15] ; create_clk:U0|count2[13] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.128      ;
+; 4.945  ; create_clk:U0|count2[13] ; create_clk:U0|count2[13] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.166      ;
+; 4.948  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.169      ;
+; 4.949  ; create_clk:U0|count2[12] ; create_clk:U0|count2[12] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.170      ;
+; 4.995  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.216      ;
+; 4.998  ; create_clk:U0|count2[10] ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.219      ;
+; 5.015  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.236      ;
+; 5.038  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[4]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.259      ;
+; 5.114  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.335      ;
+; 5.120  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[3]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.341      ;
+; 5.149  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.370      ;
+; 5.150  ; create_clk:U0|count2[5]  ; create_clk:U0|count2[7]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.371      ;
+; 5.155  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[3]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.376      ;
+; 5.193  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[2]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.414      ;
+; 5.204  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.425      ;
+; 5.214  ; create_clk:U0|count2[14] ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.435      ;
+; 5.223  ; create_clk:U0|count2[13] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.444      ;
+; 5.234  ; create_clk:U0|count2[15] ; create_clk:U0|count2[2]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.455      ;
+; 5.280  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.501      ;
+; 5.285  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.506      ;
+; 5.291  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[3]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.512      ;
+; 5.307  ; create_clk:U0|count2[14] ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.528      ;
+; 5.309  ; create_clk:U0|count2[5]  ; create_clk:U0|count2[6]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.530      ;
+; 5.329  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[2]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.550      ;
+; 5.417  ; create_clk:U0|count2[5]  ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.638      ;
+; 5.421  ; create_clk:U0|count2[12] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.642      ;
+; 5.468  ; create_clk:U0|count2[12] ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.689      ;
+; 5.535  ; create_clk:U0|count2[13] ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.756      ;
+; 5.541  ; create_clk:U0|count2[10] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.762      ;
+; 5.622  ; create_clk:U0|count2[12] ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.843      ;
+; 5.650  ; create_clk:U0|count2[9]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.871      ;
+; 5.658  ; create_clk:U0|count2[7]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.879      ;
+; 5.660  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.881      ;
+; 5.701  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.922      ;
+; 5.726  ; create_clk:U0|count2[9]  ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.947      ;
+; 5.736  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.957      ;
+; 5.742  ; create_clk:U0|count2[10] ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.963      ;
+; 5.744  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.965      ;
+; 5.747  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.968      ;
+; 5.752  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.973      ;
+; 5.763  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 5.984      ;
+; 5.817  ; create_clk:U0|count2[14] ; create_clk:U0|temp_2_5ms ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.038      ;
+; 5.817  ; create_clk:U0|count2[14] ; create_clk:U0|count2[12] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.038      ;
+; 5.823  ; create_clk:U0|count2[14] ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.044      ;
+; 5.826  ; create_clk:U0|count2[14] ; create_clk:U0|count2[13] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.047      ;
+; 5.835  ; create_clk:U0|count2[10] ; create_clk:U0|count2[12] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.056      ;
+; 5.855  ; create_clk:U0|count2[3]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.076      ;
+; 5.870  ; create_clk:U0|count2[13] ; create_clk:U0|count2[10] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.091      ;
+; 5.872  ; create_clk:U0|count2[0]  ; create_clk:U0|count2[8]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.093      ;
+; 5.944  ; create_clk:U0|count2[7]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.165      ;
+; 5.948  ; create_clk:U0|count2[7]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.169      ;
+; 5.948  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[15] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.169      ;
+; 5.961  ; create_clk:U0|count2[7]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.182      ;
+; 5.978  ; create_clk:U0|count2[12] ; create_clk:U0|temp_2_5ms ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.199      ;
+; 5.984  ; create_clk:U0|count2[12] ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.205      ;
+; 5.987  ; create_clk:U0|count2[12] ; create_clk:U0|count2[13] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.208      ;
+; 5.987  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.208      ;
+; 5.991  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.212      ;
+; 6.004  ; create_clk:U0|count2[11] ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.225      ;
+; 6.004  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.225      ;
+; 6.022  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.243      ;
+; 6.026  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.247      ;
+; 6.029  ; create_clk:U0|count2[2]  ; create_clk:U0|count2[5]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.250      ;
+; 6.030  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.251      ;
+; 6.034  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.255      ;
+; 6.039  ; create_clk:U0|count2[1]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.260      ;
+; 6.041  ; create_clk:U0|count2[8]  ; create_clk:U0|count2[12] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.262      ;
+; 6.047  ; create_clk:U0|count2[6]  ; create_clk:U0|count2[9]  ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.268      ;
+; 6.049  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[14] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.270      ;
+; 6.053  ; create_clk:U0|count2[4]  ; create_clk:U0|count2[11] ; clk                      ; clk         ; 0.000        ; 0.000      ; 6.274      ;
++--------+--------------------------+--------------------------+--------------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'create_clk:U0|temp_1h'                                                                                                                                  ;
++-------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                              ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+; 1.942 ; create_clk:U0|count[0] ; create_clk:U0|count[0]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 2.163      ;
+; 2.739 ; create_clk:U0|count[0] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 2.960      ;
+; 3.369 ; create_clk:U0|count[3] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 3.590      ;
+; 3.804 ; create_clk:U0|count[6] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 4.025      ;
+; 4.345 ; create_clk:U0|count[0] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 4.566      ;
+; 4.536 ; create_clk:U0|count[6] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 4.757      ;
+; 4.929 ; create_clk:U0|count[4] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.150      ;
+; 5.048 ; create_clk:U0|count[3] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.269      ;
+; 5.095 ; create_clk:U0|count[3] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.316      ;
+; 5.110 ; create_clk:U0|count[3] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.331      ;
+; 5.319 ; create_clk:U0|count[1] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.540      ;
+; 5.367 ; create_clk:U0|count[2] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.588      ;
+; 5.404 ; create_clk:U0|count[0] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.625      ;
+; 5.410 ; create_clk:U0|count[6] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.631      ;
+; 5.419 ; create_clk:U0|count[0] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.640      ;
+; 5.434 ; create_clk:U0|count[5] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.655      ;
+; 5.437 ; create_clk:U0|count[0] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.658      ;
+; 5.460 ; create_clk:U0|count[0] ; create_clk:U0|count[1]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.681      ;
+; 5.499 ; create_clk:U0|count[5] ; create_clk:U0|count[3]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.720      ;
+; 5.505 ; create_clk:U0|count[0] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.726      ;
+; 5.639 ; create_clk:U0|count[1] ; create_clk:U0|count[1]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.860      ;
+; 5.649 ; create_clk:U0|count[0] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.870      ;
+; 5.664 ; create_clk:U0|count[2] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 5.885      ;
+; 5.883 ; create_clk:U0|count[2] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.104      ;
+; 5.959 ; create_clk:U0|count[4] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.180      ;
+; 6.004 ; create_clk:U0|count[6] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.225      ;
+; 6.085 ; create_clk:U0|count[4] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.306      ;
+; 6.098 ; create_clk:U0|count[6] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.319      ;
+; 6.230 ; create_clk:U0|count[3] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.451      ;
+; 6.256 ; create_clk:U0|count[5] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.477      ;
+; 6.279 ; create_clk:U0|count[1] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.500      ;
+; 6.294 ; create_clk:U0|count[1] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.515      ;
+; 6.312 ; create_clk:U0|count[1] ; create_clk:U0|count[2]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.533      ;
+; 6.327 ; create_clk:U0|count[2] ; create_clk:U0|count[5]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.548      ;
+; 6.329 ; create_clk:U0|count[3] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.550      ;
+; 6.342 ; create_clk:U0|count[2] ; create_clk:U0|count[6]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.563      ;
+; 6.363 ; create_clk:U0|count[4] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.584      ;
+; 6.531 ; create_clk:U0|count[1] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.752      ;
+; 6.569 ; create_clk:U0|count[5] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.790      ;
+; 6.668 ; create_clk:U0|count[5] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 6.889      ;
+; 7.046 ; create_clk:U0|count[4] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.267      ;
+; 7.105 ; create_clk:U0|count[5] ; create_clk:U0|count[4]               ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.326      ;
+; 7.130 ; create_clk:U0|count[2] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.351      ;
+; 7.143 ; create_clk:U0|count[1] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.364      ;
+; 7.193 ; create_clk:U0|count[4] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.414      ;
+; 7.217 ; create_clk:U0|count[1] ; create_clk:U0|light_active_rush_hour ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.438      ;
+; 7.274 ; create_clk:U0|count[2] ; create_clk:U0|light_active_night     ; create_clk:U0|temp_1h ; create_clk:U0|temp_1h ; 0.000        ; 0.000      ; 7.495      ;
++-------+------------------------+--------------------------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'create_clk:U0|temp_2_5ms'                                                                                                                      ;
++--------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node           ; Launch Clock          ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+; -2.492 ; create_clk:U0|light_active_night ; display:U3|sel[1] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 2.612      ;
+; -2.492 ; create_clk:U0|light_active_night ; display:U3|sel[0] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 2.612      ;
+; -2.492 ; create_clk:U0|light_active_night ; display:U2|sel[1] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 2.612      ;
+; -2.492 ; create_clk:U0|light_active_night ; display:U2|sel[0] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 1.000        ; -0.547     ; 2.612      ;
++--------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'create_clk:U0|temp_2_5ms'                                                                                                                      ;
++-------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node           ; Launch Clock          ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+; 2.938 ; create_clk:U0|light_active_night ; display:U3|sel[1] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 2.612      ;
+; 2.938 ; create_clk:U0|light_active_night ; display:U3|sel[0] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 2.612      ;
+; 2.938 ; create_clk:U0|light_active_night ; display:U2|sel[1] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 2.612      ;
+; 2.938 ; create_clk:U0|light_active_night ; display:U2|sel[0] ; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0.000        ; -0.547     ; 2.612      ;
++-------+----------------------------------+-------------------+-----------------------+--------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[10] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[10] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[11] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[11] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[12] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[12] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[13] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[13] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[14] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[14] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[15] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[15] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|count2[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|count2[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; create_clk:U0|temp_2_5ms ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; create_clk:U0|temp_2_5ms ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[10]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[10]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[11]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[11]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[12]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[12]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[13]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[13]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[14]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[14]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[15]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[15]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[4]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[4]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[5]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[5]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[6]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[6]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[7]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[7]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[8]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[8]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|count2[9]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|count2[9]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; U0|temp_2_5ms|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; U0|temp_2_5ms|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout              ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'create_clk:U0|temp_1h'                                                                                         ;
++-------+--------------+----------------+------------------+-----------------------+------------+--------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                 ; Clock Edge ; Target                               ;
++-------+--------------+----------------+------------------+-----------------------+------------+--------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[0]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[0]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[1]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[1]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[2]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[2]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[3]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[3]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[4]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[4]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[5]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[5]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[6]               ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|count[6]               ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|light_active_night     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|light_active_night     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|light_active_rush_hour ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Fall       ; create_clk:U0|light_active_rush_hour ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[0]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[0]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[1]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[1]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[2]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[2]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[3]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[3]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[4]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[4]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[5]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[5]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|count[6]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|count[6]|clk                      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|light_active_night|clk            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|light_active_night|clk            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|light_active_rush_hour|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|light_active_rush_hour|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1h ; Rise       ; U0|temp_1h|regout                    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1h ; Rise       ; U0|temp_1h|regout                    ;
++-------+--------------+----------------+------------------+-----------------------+------------+--------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'create_clk:U0|temp_1s'                                                                                       ;
++-------+--------------+----------------+------------------+-----------------------+------------+------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                 ; Clock Edge ; Target                             ;
++-------+--------------+----------------+------------------+-----------------------+------------+------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[0] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[0] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[1] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[1] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[2] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[2] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[3] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|\process_2:count1[3] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|temp_1h              ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; create_clk:U0|temp_1h              ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|control            ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|control            ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[4]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[4]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[5]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[5]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[6]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count1[6]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[4]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[4]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[5]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[5]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[6]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count2[6]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count3[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count3[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count3[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|count3[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light1             ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light1             ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light2             ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light2             ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[0]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[0]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[1]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[1]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[2]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane1[2]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[0]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[0]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[1]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[1]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[2]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Fall       ; main_control:U1|light_lane2[2]     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[0]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[0]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|\process_2:count1[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|temp_1h|clk                     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|temp_1h|clk                     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U0|temp_1s|regout                  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U0|temp_1s|regout                  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|control|clk                     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|control|clk                     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[0]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[0]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[1]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[1]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[2]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[2]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[3]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[3]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[4]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[4]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[5]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[5]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count1[6]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count1[6]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[0]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[0]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[1]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[1]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[2]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[2]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[3]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[3]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[4]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[4]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_1s ; Rise       ; U1|count2[5]|clk                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_1s ; Rise       ; U1|count2[5]|clk                   ;
++-------+--------------+----------------+------------------+-----------------------+------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'create_clk:U0|temp_2_5ms'                                                                            ;
++-------+--------------+----------------+------------------+--------------------------+------------+-------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                    ; Clock Edge ; Target                  ;
++-------+--------------+----------------+------------------+--------------------------+------------+-------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[1] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[1] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[2] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[2] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[3] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[3] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[4] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[4] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[5] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[5] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[6] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[6] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[7] ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|count1[7] ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|temp_1s   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; create_clk:U0|temp_1s   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|sel[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U2|sel[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|count        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|count        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|sel[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U3|sel[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[0]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[1]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[2]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|Led_bcd[3]   ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|count        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|count        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|sel[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|sel[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Fall       ; display:U4|sel[1]       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[4]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[4]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[5]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[5]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[6]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[6]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[7]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|count1[7]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|temp_1s|clk          ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|temp_1s|clk          ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U0|temp_2_5ms|regout    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U0|temp_2_5ms|regout    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[0]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[0]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[1]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[1]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[2]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[2]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[3]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|Led_bcd[3]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|sel[0]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|sel[0]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U2|sel[1]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U2|sel[1]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[0]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[0]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[1]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[1]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[2]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[2]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[3]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|Led_bcd[3]|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|count|clk            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|count|clk            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|sel[0]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|sel[0]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; create_clk:U0|temp_2_5ms ; Rise       ; U3|sel[1]|clk           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; create_clk:U0|temp_2_5ms ; Rise       ; U3|sel[1]|clk           ;
++-------+--------------+----------------+------------------+--------------------------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                  ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+; Data Port         ; Clock Port               ; Rise   ; Fall   ; Clock Edge ; Clock Reference          ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+; light_lane1[*]    ; create_clk:U0|temp_1s    ; 10.376 ; 10.376 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[0]   ; create_clk:U0|temp_1s    ; 10.376 ; 10.376 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[1]   ; create_clk:U0|temp_1s    ; 10.287 ; 10.287 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[2]   ; create_clk:U0|temp_1s    ; 9.612  ; 9.612  ; Fall       ; create_clk:U0|temp_1s    ;
+; light_lane2[*]    ; create_clk:U0|temp_1s    ; 10.401 ; 10.401 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[0]   ; create_clk:U0|temp_1s    ; 10.357 ; 10.357 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[1]   ; create_clk:U0|temp_1s    ; 10.401 ; 10.401 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[2]   ; create_clk:U0|temp_1s    ; 9.705  ; 9.705  ; Fall       ; create_clk:U0|temp_1s    ;
+; led_out_hour[*]   ; create_clk:U0|temp_2_5ms ; 13.257 ; 13.257 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[0]  ; create_clk:U0|temp_2_5ms ; 13.257 ; 13.257 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[1]  ; create_clk:U0|temp_2_5ms ; 12.708 ; 12.708 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[2]  ; create_clk:U0|temp_2_5ms ; 12.332 ; 12.332 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[3]  ; create_clk:U0|temp_2_5ms ; 12.684 ; 12.684 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[4]  ; create_clk:U0|temp_2_5ms ; 12.482 ; 12.482 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[5]  ; create_clk:U0|temp_2_5ms ; 12.354 ; 12.354 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[6]  ; create_clk:U0|temp_2_5ms ; 12.864 ; 12.864 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; led_out_lane1[*]  ; create_clk:U0|temp_2_5ms ; 13.105 ; 13.105 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[0] ; create_clk:U0|temp_2_5ms ; 13.063 ; 13.063 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[1] ; create_clk:U0|temp_2_5ms ; 13.105 ; 13.105 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[2] ; create_clk:U0|temp_2_5ms ; 12.971 ; 12.971 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[3] ; create_clk:U0|temp_2_5ms ; 12.971 ; 12.971 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[4] ; create_clk:U0|temp_2_5ms ; 13.054 ; 13.054 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[5] ; create_clk:U0|temp_2_5ms ; 13.023 ; 13.023 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[6] ; create_clk:U0|temp_2_5ms ; 13.001 ; 13.001 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; led_out_lane2[*]  ; create_clk:U0|temp_2_5ms ; 13.894 ; 13.894 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[0] ; create_clk:U0|temp_2_5ms ; 13.679 ; 13.679 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[1] ; create_clk:U0|temp_2_5ms ; 13.894 ; 13.894 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[2] ; create_clk:U0|temp_2_5ms ; 12.485 ; 12.485 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[3] ; create_clk:U0|temp_2_5ms ; 13.137 ; 13.137 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[4] ; create_clk:U0|temp_2_5ms ; 12.346 ; 12.346 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[5] ; create_clk:U0|temp_2_5ms ; 12.274 ; 12.274 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[6] ; create_clk:U0|temp_2_5ms ; 13.021 ; 13.021 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel1[*]           ; create_clk:U0|temp_2_5ms ; 10.752 ; 10.752 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel1[0]          ; create_clk:U0|temp_2_5ms ; 10.246 ; 10.246 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel1[1]          ; create_clk:U0|temp_2_5ms ; 10.752 ; 10.752 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel2[*]           ; create_clk:U0|temp_2_5ms ; 9.610  ; 9.610  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel2[0]          ; create_clk:U0|temp_2_5ms ; 9.502  ; 9.502  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel2[1]          ; create_clk:U0|temp_2_5ms ; 9.610  ; 9.610  ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel_hour[*]       ; create_clk:U0|temp_2_5ms ; 9.132  ; 9.132  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel_hour[0]      ; create_clk:U0|temp_2_5ms ; 9.132  ; 9.132  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel_hour[1]      ; create_clk:U0|temp_2_5ms ; 9.021  ; 9.021  ; Fall       ; create_clk:U0|temp_2_5ms ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                          ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+; Data Port         ; Clock Port               ; Rise   ; Fall   ; Clock Edge ; Clock Reference          ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+; light_lane1[*]    ; create_clk:U0|temp_1s    ; 9.612  ; 9.612  ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[0]   ; create_clk:U0|temp_1s    ; 10.376 ; 10.376 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[1]   ; create_clk:U0|temp_1s    ; 10.287 ; 10.287 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane1[2]   ; create_clk:U0|temp_1s    ; 9.612  ; 9.612  ; Fall       ; create_clk:U0|temp_1s    ;
+; light_lane2[*]    ; create_clk:U0|temp_1s    ; 9.705  ; 9.705  ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[0]   ; create_clk:U0|temp_1s    ; 10.357 ; 10.357 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[1]   ; create_clk:U0|temp_1s    ; 10.401 ; 10.401 ; Fall       ; create_clk:U0|temp_1s    ;
+;  light_lane2[2]   ; create_clk:U0|temp_1s    ; 9.705  ; 9.705  ; Fall       ; create_clk:U0|temp_1s    ;
+; led_out_hour[*]   ; create_clk:U0|temp_2_5ms ; 11.447 ; 11.447 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[0]  ; create_clk:U0|temp_2_5ms ; 12.015 ; 12.015 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[1]  ; create_clk:U0|temp_2_5ms ; 11.451 ; 11.451 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[2]  ; create_clk:U0|temp_2_5ms ; 11.447 ; 11.447 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[3]  ; create_clk:U0|temp_2_5ms ; 11.448 ; 11.448 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[4]  ; create_clk:U0|temp_2_5ms ; 11.594 ; 11.594 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[5]  ; create_clk:U0|temp_2_5ms ; 11.465 ; 11.465 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_hour[6]  ; create_clk:U0|temp_2_5ms ; 11.628 ; 11.628 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; led_out_lane1[*]  ; create_clk:U0|temp_2_5ms ; 11.765 ; 11.765 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[0] ; create_clk:U0|temp_2_5ms ; 11.849 ; 11.849 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[1] ; create_clk:U0|temp_2_5ms ; 11.926 ; 11.926 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[2] ; create_clk:U0|temp_2_5ms ; 11.765 ; 11.765 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[3] ; create_clk:U0|temp_2_5ms ; 11.771 ; 11.771 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[4] ; create_clk:U0|temp_2_5ms ; 11.880 ; 11.880 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[5] ; create_clk:U0|temp_2_5ms ; 11.833 ; 11.833 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane1[6] ; create_clk:U0|temp_2_5ms ; 11.831 ; 11.831 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; led_out_lane2[*]  ; create_clk:U0|temp_2_5ms ; 11.734 ; 11.734 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[0] ; create_clk:U0|temp_2_5ms ; 12.455 ; 12.455 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[1] ; create_clk:U0|temp_2_5ms ; 12.692 ; 12.692 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[2] ; create_clk:U0|temp_2_5ms ; 11.952 ; 11.952 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[3] ; create_clk:U0|temp_2_5ms ; 11.913 ; 11.913 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[4] ; create_clk:U0|temp_2_5ms ; 11.793 ; 11.793 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[5] ; create_clk:U0|temp_2_5ms ; 11.734 ; 11.734 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  led_out_lane2[6] ; create_clk:U0|temp_2_5ms ; 11.800 ; 11.800 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel1[*]           ; create_clk:U0|temp_2_5ms ; 10.246 ; 10.246 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel1[0]          ; create_clk:U0|temp_2_5ms ; 10.246 ; 10.246 ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel1[1]          ; create_clk:U0|temp_2_5ms ; 10.752 ; 10.752 ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel2[*]           ; create_clk:U0|temp_2_5ms ; 9.502  ; 9.502  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel2[0]          ; create_clk:U0|temp_2_5ms ; 9.502  ; 9.502  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel2[1]          ; create_clk:U0|temp_2_5ms ; 9.610  ; 9.610  ; Fall       ; create_clk:U0|temp_2_5ms ;
+; sel_hour[*]       ; create_clk:U0|temp_2_5ms ; 9.021  ; 9.021  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel_hour[0]      ; create_clk:U0|temp_2_5ms ; 9.132  ; 9.132  ; Fall       ; create_clk:U0|temp_2_5ms ;
+;  sel_hour[1]      ; create_clk:U0|temp_2_5ms ; 9.021  ; 9.021  ; Fall       ; create_clk:U0|temp_2_5ms ;
++-------------------+--------------------------+--------+--------+------------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                 ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+; From Clock               ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+; clk                      ; clk                      ; 2088     ; 0        ; 0        ; 0        ;
+; create_clk:U0|temp_2_5ms ; clk                      ; 1        ; 1        ; 0        ; 0        ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_1h    ; 0        ; 0        ; 0        ; 256      ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_1s    ; 0        ; 0        ; 1        ; 45       ;
+; create_clk:U0|temp_1s    ; create_clk:U0|temp_1s    ; 0        ; 0        ; 0        ; 2564     ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 54       ;
+; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 1        ; 91       ;
+; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 357      ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                  ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+; From Clock               ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+; clk                      ; clk                      ; 2088     ; 0        ; 0        ; 0        ;
+; create_clk:U0|temp_2_5ms ; clk                      ; 1        ; 1        ; 0        ; 0        ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_1h    ; 0        ; 0        ; 0        ; 256      ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_1s    ; 0        ; 0        ; 1        ; 45       ;
+; create_clk:U0|temp_1s    ; create_clk:U0|temp_1s    ; 0        ; 0        ; 0        ; 2564     ;
+; create_clk:U0|temp_1h    ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 54       ;
+; create_clk:U0|temp_1s    ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 1        ; 91       ;
+; create_clk:U0|temp_2_5ms ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 357      ;
++--------------------------+--------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                           ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+; From Clock            ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 4        ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------------+
+; Removal Transfers                                                                            ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+; From Clock            ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+; create_clk:U0|temp_1h ; create_clk:U0|temp_2_5ms ; 0        ; 0        ; 0        ; 4        ;
++-----------------------+--------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 33    ; 33   ;
+; Unconstrained Output Port Paths ; 87    ; 87   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Feb 07 09:21:00 2023
+Info: Command: quartus_sta traffic_light_control -c traffic_light_control
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'traffic_light_control.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name create_clk:U0|temp_1s create_clk:U0|temp_1s
+    Info (332105): create_clock -period 1.000 -name create_clk:U0|temp_2_5ms create_clk:U0|temp_2_5ms
+    Info (332105): create_clock -period 1.000 -name create_clk:U0|temp_1h create_clk:U0|temp_1h
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -11.130
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -11.130            -252.085 create_clk:U0|temp_1s 
+    Info (332119):    -9.522            -117.699 clk 
+    Info (332119):    -8.621             -54.758 create_clk:U0|temp_1h 
+    Info (332119):    -7.025            -129.188 create_clk:U0|temp_2_5ms 
+Info (332146): Worst-case hold slack is -3.446
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.446              -3.446 create_clk:U0|temp_1s 
+    Info (332119):    -2.425              -2.425 create_clk:U0|temp_2_5ms 
+    Info (332119):    -1.826              -1.826 clk 
+    Info (332119):     1.942               0.000 create_clk:U0|temp_1h 
+Info (332146): Worst-case recovery slack is -2.492
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.492              -9.968 create_clk:U0|temp_2_5ms 
+Info (332146): Worst-case removal slack is 2.938
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.938               0.000 create_clk:U0|temp_2_5ms 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.234               0.000 create_clk:U0|temp_1h 
+    Info (332119):     0.234               0.000 create_clk:U0|temp_1s 
+    Info (332119):     0.234               0.000 create_clk:U0|temp_2_5ms 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4590 megabytes
+    Info: Processing ended: Tue Feb 07 09:21:00 2023
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
