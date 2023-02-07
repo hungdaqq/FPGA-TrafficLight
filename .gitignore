@@ -1,3 +1,7 @@
 *.vhd.bak
 *.cnf.hdb
 *.cnf.cdb
+*.tis_db_list.ddb
+*.qws
+*.qsf
+*.qpf
