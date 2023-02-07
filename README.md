@@ -1,1 +1,1 @@
-# FPGA-TraffiLight
+# FPGA-TrafficLight
