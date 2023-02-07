@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\traffic_light_control\simulation\qsim
+vtraffic_light_control
+Z1 IUF5O4R_O_`G8c5j3DO6<L0
+Z2 V2O7Ho2RSzGEJWcOHY:fE>0
+Z3 dC:\altera\traffic_light_control\simulation\qsim
+Z4 w1675696663
+Z5 8traffic_light_control.vo
+Z6 Ftraffic_light_control.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|traffic_light_control.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 j73b5Rf<TWb77R]04cX=E2
+!s85 0
+Z11 !s108 1675696664.310000
+Z12 !s107 traffic_light_control.vo|
+!s101 -O0
+vtraffic_light_control_vlg_check_tst
+!i10b 1
+Z13 !s100 ;NzQZ26TLiHj4Mf^4UTQD0
+Z14 I20OT`BA=S6WkDjDD:`d8b3
+Z15 VEBj>M_[K^5OHaV;ZQOUU81
+R3
+R4
+Z16 8Waveform.vwf.vt
+Z17 FWaveform.vwf.vt
+L0 57
+R7
+r1
+!s85 0
+31
+Z18 !s108 1675696664.388000
+Z19 !s107 Waveform.vwf.vt|
+Z20 !s90 -work|work|Waveform.vwf.vt|
+!s101 -O0
+R9
+vtraffic_light_control_vlg_sample_tst
+!i10b 1
+Z21 !s100 5Z42F2]IhkSMX?fUo^cdA2
+Z22 I:HH>zeeW:HOofLzZ>9NIZ3
+Z23 VXJ1JkBP3E42Dn20>I;7M=3
+R3
+R4
+R16
+R17
+L0 29
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R9
+vtraffic_light_control_vlg_vec_tst
+!i10b 1
+!s100 ?Z^z@P@OAOLN14oMzE<0C1
+I4jb:n;m33VBzAm`Z]G0dk1
+Z24 VF2YiKdecizcUoEba3zS8k1
+R3
+R4
+R16
+R17
+Z25 L0 757
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R9

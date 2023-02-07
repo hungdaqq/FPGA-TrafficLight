@@ -1,0 +1,61 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'create_clk:U0|temp_1s'
+Slack : -11.130
+TNS   : -252.085
+
+Type  : Setup 'clk'
+Slack : -9.522
+TNS   : -117.699
+
+Type  : Setup 'create_clk:U0|temp_1h'
+Slack : -8.621
+TNS   : -54.758
+
+Type  : Setup 'create_clk:U0|temp_2_5ms'
+Slack : -7.025
+TNS   : -129.188
+
+Type  : Hold 'create_clk:U0|temp_1s'
+Slack : -3.446
+TNS   : -3.446
+
+Type  : Hold 'create_clk:U0|temp_2_5ms'
+Slack : -2.425
+TNS   : -2.425
+
+Type  : Hold 'clk'
+Slack : -1.826
+TNS   : -1.826
+
+Type  : Hold 'create_clk:U0|temp_1h'
+Slack : 1.942
+TNS   : 0.000
+
+Type  : Recovery 'create_clk:U0|temp_2_5ms'
+Slack : -2.492
+TNS   : -9.968
+
+Type  : Removal 'create_clk:U0|temp_2_5ms'
+Slack : 2.938
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'create_clk:U0|temp_1h'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'create_clk:U0|temp_1s'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'create_clk:U0|temp_2_5ms'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------
