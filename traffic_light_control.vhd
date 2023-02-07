@@ -4,14 +4,14 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.numeric_std.all;
 entity traffic_light_control is
-generic( hour : integer range 0 to 99:= 15
+generic ( hour : integer range 0 to 99:= 15 
 );
-port (	clk : in std_logic;
-			light_lane1                                : out std_logic_vector (2 downto 0) := "010"; -- red, green, yellow
-			light_lane2				   : out std_logic_vector (2 downto 0) := "100";
-			led_out_hour, led_out_lane1, led_out_lane2 : out STD_LOGIC_VECTOR (6 downto 0);
-			sel1, sel2, sel_hour                       : out STD_LOGIC_VECTOR (1 downto 0)
-		);
+port    ( clk 					     : in  std_logic;
+	  light_lane1                                : out std_logic_vector (2 downto 0) := "010"; -- red, green, yellow
+	  light_lane2				     : out std_logic_vector (2 downto 0) := "100";
+	  led_out_hour, led_out_lane1, led_out_lane2 : out STD_LOGIC_VECTOR (6 downto 0);
+	  sel1, sel2, sel_hour                       : out STD_LOGIC_VECTOR (1 downto 0)
+);
 end traffic_light_control;
  
 architecture Behavioral of traffic_light_control is
@@ -20,12 +20,12 @@ architecture Behavioral of traffic_light_control is
 	generic( hour : integer range 0 to 24
 	);
 	port(
-		clk	: in 	std_logic;
-		clk_2_5ms: out std_logic;			
-		clk_1s: out	std_logic;
-		light_active_night: out std_logic;
+		clk	              : in  std_logic;
+		clk_2_5ms             : out std_logic;			
+		clk_1s                : out std_logic;
+		light_active_night    : out std_logic;
 		light_active_rush_hour: out std_logic;
-		time1 : out integer range 0 to 99 := hour
+		time1                 : out integer range 0 to 99 := hour
 	);
 	end component;
 	component main_control 
@@ -43,20 +43,20 @@ architecture Behavioral of traffic_light_control is
 			n2_red_normal      : integer range 0 to 99		-- thời gian đèn đỏ lane2 bình thường
 	);
 	port (	
-				clk_1s, light_active_night, light_active_rush_hour : in std_logic;
-				light_lane1 : out std_logic_vector (2 downto 0) := "010"; -- red, green, yellow
-				light_lane2 : out std_logic_vector (2 downto 0) := "100";
-				nume_lane1  : out integer range 0 to 99;
-				nume_lane2  : out integer range 0 to 99
-		);
+			clk_1s, light_active_night, light_active_rush_hour : in std_logic;
+			light_lane1 : out std_logic_vector (2 downto 0) := "010"; -- red, green, yellow
+			light_lane2 : out std_logic_vector (2 downto 0) := "100";
+			nume_lane1  : out integer range 0 to 99;
+			nume_lane2  : out integer range 0 to 99
+	);
 	end component;
 	
 	component display 
 	Port ( 
 		clk_2_5ms, light_active_night : in STD_LOGIC;
-		n							  : in integer range 0 to 99;
-		sel   						  : out STD_LOGIC_VECTOR (1 downto 0);
-        LED_out 					  : out STD_LOGIC_VECTOR (6 downto 0)
+		n			      : in integer range 0 to 99;
+		sel   			      : out STD_LOGIC_VECTOR (1 downto 0);
+                LED_out 		      : out STD_LOGIC_VECTOR (6 downto 0)
 	);
 	end component;
 	signal	nume_lane1, nume_lane2, nume_lane1_temp, nume_lane2_temp: integer range 0 to 99;
