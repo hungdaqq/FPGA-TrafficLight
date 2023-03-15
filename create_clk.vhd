@@ -60,24 +60,24 @@ begin
 	end process;
 	
 	process(temp_1h)
-		variable count: integer range 0 to 99 := hour;
+		variable realtime: integer range 0 to 99 := hour;
 	begin
-	temp <= count;
+	temp <= realtime;
 	if rising_edge(temp_1h) then
-		count := count +1;
-		if count >= 5 and count < 22 then
+		realtime := realtime +1;
+		if realtime >= 5 and realtime < 22 then
 			light_active_night <= '0';
 		else 
 			light_active_night <= '1';
 		end if;
 		
-		if (count >= 6 and count <= 9) or (count >= 16 and count <= 19) or count = 11 then
+		if (realtime >= 6 and realtime <= 9) or (realtime >= 16 and realtime <= 19) or realtime = 11 then
 			light_active_rush_hour <= '1';
 		else 
 			light_active_rush_hour <= '0';
 		end if;
-		if count = 24 then
-			count := 0 ;
+		if realtime = 24 then
+			realtime := 0 ;
 		end if;
 	end if;
 	end process;	
