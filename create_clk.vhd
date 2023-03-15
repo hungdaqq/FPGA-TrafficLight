@@ -10,7 +10,7 @@ port(
 	clk_1s            	: out std_logic;
 	light_active_night	: out std_logic;
 	light_active_rush_hour  : out std_logic;
-	time1			: out integer range 0 to 99
+	realtime		: out integer range 0 to 99
 );
 end create_clk;
 
